@@ -1,0 +1,14 @@
+{
+  "name": "photos",
+  "version": "1.0.0",
+  "description": "Node.js application that creates folder structure from photos and moves them in corresponding folder according to time a photo was taken",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Valentino Novak",
+  "license": "MIT",
+  "dependencies": {
+    "exif-parser": "^0.1.12"
+  }
+}
