@@ -1,2 +1,10 @@
 # Photos
-Node.js application that creates folder structure from photos and moves them in corresponding folder according to time a photo was taken.
+
+Node.js application that creates folder structure from photos and moves them in corresponding folder according to time a photo was taken. Only works for jpg and jpeg.
+
+## Getting started
+
+1. Put all unsorted images in the directory specified by the variable `photosDirectory` inside `index.js`. The code doesn't work recursively i.e. all photos must be in specified path
+2. Make sure you have [node.js](https://nodejs.org/en/download/package-manager) installed. Code is tested with v20.15.0
+3. `CD` to working directory and run `npm install`
+4. Run the code with `node index.js`
