@@ -1,10 +1,10 @@
 # Photos
 
-Node.js application that creates folder structure from photos and moves them in corresponding folder according to time a photo was taken. Only works for jpg and jpeg.
+Node.js application that creates folder structure from photos and moves them in corresponding folder according to time a photo was taken.
 
 ## Getting started
 
-1. Put all unsorted images in the directory specified by the variable `photosDirectory` inside `index.js`. The code doesn't work recursively i.e. all photos must be in the specified path. Example for specifying the path
+1. Put all unsorted images in the directory specified by the variable `photosDirectory` inside `index.js`. The code doesn't work recursively i.e. all photos must be in the specified path. Example for specifying the path:
 
 ```js
 const photosDirectory = path.join('E:/', 'SomeDirectory', 'file.jpg');
