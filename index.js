@@ -2,26 +2,28 @@ const fs = require('fs');
 const path = require('path');
 const exifParser = require('exif-parser');
 
-const supportedExtensions = ['.jpg', '.jpeg'];
-const photosDirectory = 'C:\\Users\\valen\\OneDrive\\Desktop\\slike';
+const supportedExtensions = ['.jpg', '.jpeg', '.png'];
+const photosDirectory = path.join('E:/');
 
 // Function to get the date from EXIF data
 const getPhotoDate = (filePath) => {
-  const buffer = fs.readFileSync(filePath);
-  const parser = exifParser.create(buffer);
-  const result = parser.parse();
+  if (path.extname(filePath).toLowerCase() !== '.png') {
+    const buffer = fs.readFileSync(filePath);
+    const parser = exifParser.create(buffer);
+    const result = parser.parse();
 
-  // Check for CreateDate first, then ModifyDate
-  const dateTag = result.tags.CreateDate || result.tags.ModifyDate;
+    // Check for CreateDate first, then ModifyDate
+    const dateTag = result.tags.CreateDate || result.tags.ModifyDate;
 
-  if (dateTag) {
-    const date = new Date(dateTag * 1000); // Convert from seconds to milliseconds
-    const year = date.getFullYear();
-    const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are 0-based
-    return `${year}-${month}`;
+    if (dateTag) {
+      const date = new Date(dateTag * 1000); // Convert from seconds to milliseconds
+      const year = date.getFullYear();
+      const month = ('0' + (date.getMonth() + 1)).slice(-2); // Months are 0-based
+      return `${year}-${month}`;
+    }
   }
 
-  // Fallback to file system dates if no EXIF date is found
+  // Fallback to file system dates if no EXIF date is not found
   const stats = fs.statSync(filePath);
   const systemDate = new Date(stats.mtime) || new Date(stats.birthtime);
 
