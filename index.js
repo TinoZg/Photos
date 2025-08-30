@@ -48,6 +48,13 @@ const moveFile = (filePath, targetDir) => {
   }
   const fileName = path.basename(filePath);
   const targetPath = path.join(targetDir, fileName);
+
+  // ✅ Skip if the file already exists in the target folder
+  if (fs.existsSync(targetPath)) {
+    console.log(`Skipping (already exists): ${fileName}`);
+    return;
+  }
+
   fs.renameSync(filePath, targetPath);
 };
 
