@@ -68,6 +68,7 @@ const processFiles = (sourceDir, targetDir) => {
         // Create subfolders under the target directory based on the photo date
         const destinationDir = path.join(targetDir, photoDate);
         moveFile(filePath, destinationDir);
+        console.log(`Moved: ${file} -> ${destinationDir}`);
       }
     }
   });
